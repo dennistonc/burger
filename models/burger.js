@@ -7,7 +7,6 @@ selectAll: function(cb) {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
   insertOne: function(cols, vals, cb) {
     orm.insertOne("burgers", cols, vals, function(res) {
       cb(res);
@@ -20,5 +19,5 @@ selectAll: function(cb) {
   }
 };
 
-// Export the database functions for the controller (catsController.js).
+// Export the database functions for burgers_controller.js
 module.exports = burger;
