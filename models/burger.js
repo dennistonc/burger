@@ -16,6 +16,11 @@ selectAll: function(cb) {
     orm.updateOne("burgers", objColVals, condition, function(res) {
       cb(res);
     });
+  },
+  deleteOne: function(condition, cb) {
+    orm.deleteOne("burgers", condition, function(res) {
+      cb(res);
+    });
   }
 };
 

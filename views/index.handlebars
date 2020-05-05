@@ -1,6 +1,8 @@
-<div class="jumbotron">
-  <h1 class="display-4">Yummy Burgers!</h1>
-  <p class="lead">Add your favorite burger and it will show up in a list to be devoured. Once a burger appears on the list, you then have the option to devour it!</p>
+<div class="jumbotron" style="background-image: url('/assets/images/burger-TR-20.png'); background-size: contain; background-repeat: repeat; background-size: 150px;">
+  <h1 class="display-4">Eat Da Yummy Burgers!</h1>
+  <p class="h4">Add your favorite burger and it will show up in a list to be devoured.
+    <br>Once a burger appears on the list, you then have the option to devour it!
+    <br>Once devoured, you have the option to delete the burger from the devoured list.</p>
 </div>
 
 <div class="container">
@@ -11,7 +13,7 @@
         {{#each burgers}}
           {{#unless devoured}}
             <span><strong>{{this.id}} - {{this.burger_name}}</strong></span>
-            <button type="button" class="devourburger btn btn-success col-sm-4" id="devourbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span><strong>Devour! 😋</strong></span></button>
+            <button type="button" class="devourburger btn btn-success col-sm-4" id="devourbutton" data-id="{{this.id}}" data-devourState="{{devoured}}" style="margin-bottom: 10px"><span><strong>Devour! 😋</strong></span></button>
           {{/unless}}
         {{/each}}
         </ul>
@@ -22,7 +24,8 @@
       <ul class="list-group">
         {{#each burgers}}
           {{#if devoured}}
-            <span><strong>{{this.id}} - {{this.burger_name}}</strong></span>
+            <span><strong>{{this.burger_name}}</strong></span>
+            <button type="button" class="deleteburger btn btn-danger col-sm-4" id="deletebutton" data-id="{{this.id}}" data-devourState="{{devoured}}" style="margin-bottom: 10px;"><span><strong>Delete! 🗑️</strong></span></button>
           {{/if}}
         {{/each}}
       </ul>

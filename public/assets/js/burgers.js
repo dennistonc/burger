@@ -20,7 +20,7 @@ $(function() {
         }
       );
     });
-  
+
 
     $(".devourburger").on("click", function(event) {
       event.preventDefault();
@@ -29,7 +29,7 @@ $(function() {
       var devourState = {
         devoured: 1
       };
-  
+
       // Send the PUT request.
       $.ajax("/api/burgers/" + id, {
         type: "PUT",
@@ -37,9 +37,21 @@ $(function() {
       }).then(
         function() {
           console.log("Burger has been devoured! Yummy!");
-          // Reload the page to get the updated list
+
           location.reload();
         }
       );
+    });
+
+
+    $(".deleteburger").on("click", function(event) {
+      event.preventDefault();
+
+      var id = $(this).data("id");
+  
+      $.ajax({
+        type: "DELETE",
+        url: "/api/burgers/" + id
+      }).then(location.reload());
     });
   });
